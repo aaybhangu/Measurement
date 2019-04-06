@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row mt-4 mb-4">
+    <div class="col-md-3">
+      <label class="col-form-label col-form-label-sm" for="inputGroupSelect01">
+        Sensor Type
+      </label>
+      <select
+        [(ngModel)]="selectedData.sensorType"
+        (change)="onSelect(ngModel)"
+        class="input-group input-group-sm mb-3"
+        id="inputGroupSelect01"
+      >
+        <option *ngFor="let type of dropdownObj.SensorType" [value]="type">{{
+          type
+        }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="col-form-label col-form-label-sm" for="inputGroupSelect02"
+        >Sensors
+      </label>
+      <select
+        [(ngModel)]="selectedData.Sensors"
+        (change)="onSelect(ngModel)"
+        class="input-group input-group-sm"
+        id="inputGroupSelect02"
+      >
+        <option *ngFor="let type of dropdownObj.Sensors" [value]="type">{{
+          type
+        }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="col-form-label col-form-label-sm" for="inputGroupSelect03"
+        >Data Granularity</label
+      >
+      <select
+        [(ngModel)]="selectedData.data_Granularity"
+        (change)="onSelect(ngModel)"
+        class="input-group input-group-sm mb-3"
+        id="inputGroupSelect03"
+      >
+        <option
+          *ngFor="let type of dropdownObj.DataGranularity"
+          [value]="type"
+          >{{ type }}</option
+        >
+      </select>
+    </div>
+    <div class="col-md-3 ">
+      <label class="col-form-label col-form-label-sm" for="inputGroupSelect04"
+        >Time Range</label
+      >
+      <select
+        [(ngModel)]="selectedData.time_Range"
+        (change)="onSelect(ngModel)"
+        class="input-group input-group-sm mb-3"
+        id="inputGroupSelect04"
+      >
+        <option *ngFor="let type of dropdownObj.TimeRange" [value]="type">{{
+          type
+        }}</option>
+      </select>
+    </div>
+  </div>
+  <app-graph-data
+    *ngIf="dateValidator"
+    [selectedData]="selectedData"
+  ></app-graph-data>
+  <div class="nav justify-content-end mt-4">
+    <div class="col-md-4 col-lg-3 mb-2">
+      <button class=" btn btn-sm btn-outline-secondary btn-block mr-2">
+        CSV
+      </button>
+    </div>
+    <div class="col-md-4 col-lg-3 mb-2">
+      <button class="btn btn-sm btn-outline-primary btn-block">Download</button>
+    </div>
+  </div>
+</div>
