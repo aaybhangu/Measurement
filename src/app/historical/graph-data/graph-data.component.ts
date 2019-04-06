@@ -8,7 +8,9 @@ import { Color, BaseChartDirective, Label } from "ng2-charts";
   styleUrls: ["./graph-data.component.sass"]
 })
 export class GraphDataComponent implements OnInit {
-  @Input() selectedData: any = {};
+  @Input() selectedData: any = {}; // input variable to get data from parent component
+
+  // initail chart data.
   lineChartData: ChartDataSets[] = [
     {
       data: [-10, 44, 63, 61, 30, 65, 157, 82, 84, 147, 163, 147, 175],
@@ -26,6 +28,8 @@ export class GraphDataComponent implements OnInit {
       fill: false
     }
   ];
+
+  //  bottom labels for the chart
   lineChartLabels: Label[] = [
     "18:10",
     " ",
@@ -54,6 +58,7 @@ export class GraphDataComponent implements OnInit {
       ]
     }
   };
+  // chart coloring settings
   lineChartColors: Color[] = [
     {
       // red
@@ -84,10 +89,11 @@ export class GraphDataComponent implements OnInit {
     }
   ];
   lineChartLegend = true;
-  lineChartType = "line";
+  lineChartType = "line"; // chart type.
   constructor() {}
 
   ngOnInit() {
+    // Chart data array is being updated with data from parent component
     this.lineChartData.forEach((val, i) => {
       val.data = this.selectedData.selectedSensors[i].data;
       val.label = this.selectedData.selectedSensors[i].label;

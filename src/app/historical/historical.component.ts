@@ -5,12 +5,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./historical.component.sass"]
 })
 export class HistoricalComponent implements OnInit {
+  // dropdownObj to add date into the Dropbox Items. Any new items can be added to the array list in the obj.
   dropdownObj = {
     SensorType: ["Humidity"],
     Sensors: ["CH01 SE01, CH01 SE14,CH03 SE01"],
     DataGranularity: ["5 Min"],
     TimeRange: ["Past 1 Day"]
   };
+  // sensor Data It is just dummy data array can be replace with the real date.
   sensorsData = [
     {
       data: [-10, 44, 63, 61, 30, 65, 157, 82, 84, 147, 163, 147, 175],
@@ -26,7 +28,9 @@ export class HistoricalComponent implements OnInit {
     }
   ];
 
-  dateValidator;
+  dataValidator: any; // DateValidator a boolen variable. will get true when all the dropbox field are selected.
+
+  //  selectedData: It will get all the users inputs. right now It have been given default selected values.
   selectedData: any = {
     sensorType: "Humidity",
     Sensors: ["CH01 SE01, CH01 SE14,CH03 SE01"],
@@ -50,7 +54,7 @@ export class HistoricalComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.updateSensorsData();
+    this.updateSensorsData(); // function format all the data in required format.
   }
 
   onSelect() {
@@ -59,7 +63,7 @@ export class HistoricalComponent implements OnInit {
     }
   }
   updateSensorsData() {
-    this.selectedData.selectedSensors = this.sensorsData;
-    this.dateValidator = Object.keys(this.selectedData).length >= 5 ? 1 : 0;
+    this.selectedData.selectedSensors = this.sensorsData; // SensorData is getting add to selecteddata obj.
+    this.dataValidator = Object.keys(this.selectedData).length >= 5 ? 1 : 0; // dataValidator validate if all the required feilds are there.
   }
 }

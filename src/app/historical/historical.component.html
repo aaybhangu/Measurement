@@ -1,5 +1,8 @@
+<!--HTML Template for Historical Component-->
 <div class="container">
+  <!--Template for all the dropdown buttons-->
   <div class="row mt-4 mb-4">
+    <!--Button 1 for Sensor Type-->
     <div class="col-md-3">
       <label class="col-form-label col-form-label-sm" for="inputGroupSelect01">
         Sensor Type
@@ -15,6 +18,8 @@
         }}</option>
       </select>
     </div>
+
+    <!--Button 2 for Sensors-->
     <div class="col-md-3">
       <label class="col-form-label col-form-label-sm" for="inputGroupSelect02"
         >Sensors
@@ -30,6 +35,7 @@
         }}</option>
       </select>
     </div>
+    <!--Button 3 for Data Granularity-->
     <div class="col-md-3">
       <label class="col-form-label col-form-label-sm" for="inputGroupSelect03"
         >Data Granularity</label
@@ -47,6 +53,8 @@
         >
       </select>
     </div>
+
+    <!--Button 4 for Time Range-->
     <div class="col-md-3 ">
       <label class="col-form-label col-form-label-sm" for="inputGroupSelect04"
         >Time Range</label
@@ -63,10 +71,13 @@
       </select>
     </div>
   </div>
+  <!--Graph Component -->
   <app-graph-data
-    *ngIf="dateValidator"
+    *ngIf="dataValidator"
     [selectedData]="selectedData"
   ></app-graph-data>
+
+  <!--Beneath buttons -->
   <div class="nav justify-content-end mt-4">
     <div class="col-md-4 col-lg-3 mb-2">
       <button class=" btn btn-sm btn-outline-secondary btn-block mr-2">
