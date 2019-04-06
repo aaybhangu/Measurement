@@ -53,7 +53,7 @@ export class HistoricalComponent implements OnInit {
     this.updateSensorsData();
   }
 
-  onSelect(val) {
+  onSelect() {
     if (this.selectedData.Sensors) {
       this.updateSensorsData();
     }
